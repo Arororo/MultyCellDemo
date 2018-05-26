@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol CellFooter: class {
+	func configure(with eventReport: EventReport)
+}
+
 class EventReportCellTableViewCell: UITableViewCell {
 	@IBOutlet weak var avatarImageView: UIImageView!
 	@IBOutlet weak var userNameLabel: UILabel!
@@ -15,6 +19,7 @@ class EventReportCellTableViewCell: UITableViewCell {
 	@IBOutlet weak var eventTitleLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var footerContainerView: UIView!
+	private weak var footer: CellFooter?
 	
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,6 +38,65 @@ class EventReportCellTableViewCell: UITableViewCell {
 		self.ratingImageView.image = eventReport.rating.icon
 		self.eventTitleLabel.text = eventReport.title
 		self.descriptionLabel.text = eventReport.description
+		let footer = accessFooter(ofType: eventReport.eventReportType)
+		footer.configure(with: eventReport)
+	}
+	
+	private func accessFooter(ofType eventReportType: EventReportType) -> CellFooter {
+		if eventReportType.isRightFooterType(footer: self.footer) {
+			print("* Found right footer")
+			return self.footer!
+		}
+		self.subviews
+			.filter {$0 is CellFooter}
+			.forEach {$0.removeFromSuperview()}
+		
+		var footer: CellFooter?
+		switch eventReportType {
+		case .map:
+			let cellFooter: MapCellFooter = .fromNib()
+			footer = cellFooter
+		case .collection:
+			let cellFooter: CollectionCellFooter = .fromNib()
+			footer = cellFooter
+		case .image:
+			let cellFooter: ImageCellFooter = .fromNib()
+			footer = cellFooter
+		}
+		
+		print("* Made a new footer")
+		
+		if let footerView = footer as? UIView {
+			footerView.frame = self.footerContainerView.bounds
+			footerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+			footerView.translatesAutoresizingMaskIntoConstraints = true;
+			self.footerContainerView.addSubview(footerView)
+			self.footer = footer
+		}
+		
+		return footer!
 	}
     
+}
+
+extension EventReportType {
+	func isRightFooterType(footer: CellFooter?) -> Bool {
+		guard let footer = footer else {
+			return false
+		}
+		switch self {
+		case .map:
+			return footer is MapCellFooter
+		case .collection:
+			return footer is CollectionCellFooter
+		case .image:
+			return footer is ImageCellFooter
+		}
+	}
+}
+
+extension UIView {
+	class func fromNib<T: UIView>() -> T {
+		return Bundle.main.loadNibNamed(String(describing: T.self), owner: nil, options: nil)![0] as! T
+	}
 }

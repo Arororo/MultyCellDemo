@@ -85,6 +85,25 @@ extension ViewController {
 			return eventReport
 		} ()
 		eventReports.append(item)
+		
+		item = {
+			let eventReport = EventReport(ofType: .collection)
+			eventReport.authorName = "John Doe"
+			eventReport.avatarFileName = "JohnDoe"
+			eventReport.date = Date.init(timeInterval: -3600.0 * 24.0 * 10, since: Date())
+			eventReport.rating = .none
+			eventReport.title = "The flower trip"
+			eventReport.description = "The selection is creating amazing species of flowers."
+			eventReport.collectionItems = (1...6).map {"flower\($0)"}.map {CollectionItem.init(imagePath: $0, imageTitle: $0.capitalized)}
+			return eventReport
+		} ()
+		eventReports.append(item)
+		
+		eventReports.append(contentsOf: eventReports)
+		eventReports.append(contentsOf: eventReports)
+		eventReports.append(contentsOf: eventReports)
+		
+		
 		return eventReports
 	}
 }
