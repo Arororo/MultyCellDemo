@@ -23,9 +23,9 @@ class ViewController: UIViewController {
 	}
 
 	func setupTableView() {
-		let nibName = EventReportCellTableViewCell.description().components(separatedBy: ".").last!
+		let nibName = EventReportTableViewCell.description().components(separatedBy: ".").last!
 		let nib = UINib(nibName: nibName, bundle: nil)
-		self.tableView.register(nib, forCellReuseIdentifier: "EventReportCellTableViewCell")
+		EventReportType.allCases().forEach {self.tableView.register(nib, forCellReuseIdentifier: "EventReportCellTableViewCell\($0.rawValue)")}
 	}
 
 }
@@ -47,8 +47,9 @@ extension ViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "EventReportCellTableViewCell")
-		guard let result = cell as? EventReportCellTableViewCell else {
+		let item = self.items[indexPath.row]
+		let cell = tableView.dequeueReusableCell(withIdentifier: "EventReportCellTableViewCell\(item.eventReportType.rawValue)")
+		guard let result = cell as? EventReportTableViewCell else {
 			return UITableViewCell()
 		}
 		result.configure(with: self.items[indexPath.row])
