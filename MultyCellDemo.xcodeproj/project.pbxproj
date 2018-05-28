@@ -13,8 +13,8 @@
 		1A81CE2920B7690E00654F9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A81CE2820B7690E00654F9C /* Assets.xcassets */; };
 		1A81CE2C20B7690E00654F9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A81CE2A20B7690E00654F9C /* LaunchScreen.storyboard */; };
 		1A81CE3420B76AA600654F9C /* EventReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A81CE3320B76AA600654F9C /* EventReport.swift */; };
-		1A81CE3720B77B8400654F9C /* EventReportCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A81CE3520B77B8400654F9C /* EventReportCellTableViewCell.swift */; };
-		1A81CE3820B77B8400654F9C /* EventReportCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A81CE3620B77B8400654F9C /* EventReportCellTableViewCell.xib */; };
+		1A81CE3720B77B8400654F9C /* EventReportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A81CE3520B77B8400654F9C /* EventReportTableViewCell.swift */; };
+		1A81CE3820B77B8400654F9C /* EventReportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A81CE3620B77B8400654F9C /* EventReportTableViewCell.xib */; };
 		1A81CE3D20B8920400654F9C /* MapCellFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A81CE3C20B8920400654F9C /* MapCellFooter.swift */; };
 		1A81CE3F20B8921400654F9C /* MapCellFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A81CE3E20B8921400654F9C /* MapCellFooter.xib */; };
 		1A81CE4120B8BDFE00654F9C /* ImageCellFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A81CE4020B8BDFE00654F9C /* ImageCellFooter.swift */; };
@@ -34,8 +34,8 @@
 		1A81CE2B20B7690E00654F9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A81CE2D20B7690E00654F9C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A81CE3320B76AA600654F9C /* EventReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventReport.swift; sourceTree = "<group>"; };
-		1A81CE3520B77B8400654F9C /* EventReportCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventReportCellTableViewCell.swift; sourceTree = "<group>"; };
-		1A81CE3620B77B8400654F9C /* EventReportCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventReportCellTableViewCell.xib; sourceTree = "<group>"; };
+		1A81CE3520B77B8400654F9C /* EventReportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventReportTableViewCell.swift; sourceTree = "<group>"; };
+		1A81CE3620B77B8400654F9C /* EventReportTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EventReportTableViewCell.xib; sourceTree = "<group>"; };
 		1A81CE3C20B8920400654F9C /* MapCellFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCellFooter.swift; sourceTree = "<group>"; };
 		1A81CE3E20B8921400654F9C /* MapCellFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MapCellFooter.xib; sourceTree = "<group>"; };
 		1A81CE4020B8BDFE00654F9C /* ImageCellFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCellFooter.swift; sourceTree = "<group>"; };
@@ -91,8 +91,8 @@
 		1A81CE3920B88FF300654F9C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1A81CE3520B77B8400654F9C /* EventReportCellTableViewCell.swift */,
-				1A81CE3620B77B8400654F9C /* EventReportCellTableViewCell.xib */,
+				1A81CE3520B77B8400654F9C /* EventReportTableViewCell.swift */,
+				1A81CE3620B77B8400654F9C /* EventReportTableViewCell.xib */,
 				1A81CE3C20B8920400654F9C /* MapCellFooter.swift */,
 				1A81CE3E20B8921400654F9C /* MapCellFooter.xib */,
 				1A81CE4020B8BDFE00654F9C /* ImageCellFooter.swift */,
@@ -179,7 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A81CE3820B77B8400654F9C /* EventReportCellTableViewCell.xib in Resources */,
+				1A81CE3820B77B8400654F9C /* EventReportTableViewCell.xib in Resources */,
 				1A81CE2C20B7690E00654F9C /* LaunchScreen.storyboard in Resources */,
 				1A81CE2920B7690E00654F9C /* Assets.xcassets in Resources */,
 				1A81CE3F20B8921400654F9C /* MapCellFooter.xib in Resources */,
@@ -201,7 +201,7 @@
 				1A81CE2420B7690C00654F9C /* ViewController.swift in Sources */,
 				1A81CE4A20B8E71400654F9C /* ImageCollectionViewCell.swift in Sources */,
 				1A81CE3420B76AA600654F9C /* EventReport.swift in Sources */,
-				1A81CE3720B77B8400654F9C /* EventReportCellTableViewCell.swift in Sources */,
+				1A81CE3720B77B8400654F9C /* EventReportTableViewCell.swift in Sources */,
 				1A81CE4120B8BDFE00654F9C /* ImageCellFooter.swift in Sources */,
 				1A81CE2220B7690C00654F9C /* AppDelegate.swift in Sources */,
 				1A81CE4520B8D51200654F9C /* CollectionCellFooter.swift in Sources */,
