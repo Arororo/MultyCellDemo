@@ -9,10 +9,22 @@
 import UIKit
 import MapKit
 
-enum EventReportType {
+enum EventReportType: Int {
 	case map
 	case collection
 	case image
+	
+	static func allCases() -> [EventReportType] {
+		var value = 0
+		var result = [EventReportType]()
+		var itemCandidate = EventReportType(rawValue: value)
+		while let item = itemCandidate {
+			result.append(item)
+			value += 1
+			itemCandidate = EventReportType(rawValue: value)
+		}
+		return result
+	}
 }
 
 enum EventReporterRating: NSInteger {
