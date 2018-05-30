@@ -22,8 +22,14 @@ extension UITableViewCell {
 		return self.defaultIdentifier()
 	}
 	
+	@objc class func identifiers() -> [String] {
+		return [self.defaultIdentifier()]
+	}
+	
 	@objc class func registerNibs(in tableView: UITableView) {
 		let nib = UINib(nibName: self.nibName(), bundle: nil)
-		tableView.register(nib, forCellReuseIdentifier: self.defaultIdentifier())
+		self.identifiers().forEach {
+			tableView.register(nib, forCellReuseIdentifier: $0)
+		}
 	}
 }

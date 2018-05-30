@@ -21,6 +21,7 @@ class EventReportTableViewCell: UITableViewCell {
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var footerContainerView: UIView!
 	private weak var footer: CellFooter?
+	private static var footerCounter = 0
 	
 	static private let dateFormatter: DateFormatter = {
 		let formatter = DateFormatter()
@@ -32,12 +33,20 @@ class EventReportTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+	
+	private class func identifier(for eventReportType: EventReportType) -> String {
+		return super.defaultIdentifier() + "\(eventReportType)"
+	}
 
 	override class func identifier(for item: Any?) -> String {
 		guard let eventReport = item as? EventReport else {
 			return super.defaultIdentifier()
 		}
-		return super.defaultIdentifier() + "\(eventReport.eventReportType)"
+		return self.identifier(for: eventReport.eventReportType)
+	}
+	
+	override class func identifiers() -> [String] {
+		return EventReportType.allCases().map {self.identifier(for: $0)}
 	}
 	
 	override class func registerNibs(in tableView: UITableView) {
@@ -59,8 +68,9 @@ class EventReportTableViewCell: UITableViewCell {
 	}
 	
 	private func accessFooter(ofType eventReportType: EventReportType) -> CellFooter {
+		EventReportTableViewCell.footerCounter += 1
 		if eventReportType.isRightFooterType(footer: self.footer) {
-			print("* Found a right footer")
+			print("\(EventReportTableViewCell.footerCounter) * Found a right footer")
 			return self.footer!
 		}
 		self.subviews
@@ -80,7 +90,7 @@ class EventReportTableViewCell: UITableViewCell {
 			footer = cellFooter
 		}
 		
-		print("* Made a new footer")
+		print("\(EventReportTableViewCell.footerCounter) * Made a new footer")
 		
 		if let footerView = footer as? UIView {
 			footerView.frame = CGRect(x: 0, y: 0, width: self.footerContainerView.bounds.width, height: self.footerContainerView.bounds.height - 5.0)
