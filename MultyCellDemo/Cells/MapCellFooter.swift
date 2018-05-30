@@ -24,6 +24,10 @@ class MapCellFooter: UIView {
 			self.mapView.setRegion(region, animated: false)
 		}
 	}
+	
+	override var intrinsicContentSize: CGSize {
+		return CGSize(width: 375, height: 200)
+	}
 }
 
 extension MapCellFooter: CellFooter {

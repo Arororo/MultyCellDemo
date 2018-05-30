@@ -67,7 +67,7 @@
                         <constraints>
                             <constraint firstItem="GZp-jx-UFF" firstAttribute="centerX" secondItem="1rs-fS-Mbz" secondAttribute="centerX" id="1iK-Uq-BpH"/>
                             <constraint firstItem="GZp-jx-UFF" firstAttribute="centerY" secondItem="1rs-fS-Mbz" secondAttribute="centerY" id="hex-38-mgi"/>
-                            <constraint firstAttribute="height" constant="125" id="idU-1q-KVE"/>
+                            <constraint firstAttribute="height" priority="750" constant="125" id="idU-1q-KVE"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NS-AA-OQd" userLabel="dateLabel">

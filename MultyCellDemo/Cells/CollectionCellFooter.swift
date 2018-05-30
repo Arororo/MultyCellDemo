@@ -19,6 +19,10 @@ class CollectionCellFooter: UIView {
 		
 	}
 	
+	override var intrinsicContentSize: CGSize {
+		return CGSize(width: 375, height: 120)
+	}
+	
 	private func setupCollectionView() {
 		let cellClassName = String(describing: ImageCollectionViewCell.self)
 		let nib = UINib(nibName: cellClassName, bundle: nil)

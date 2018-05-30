@@ -10,6 +10,7 @@ import UIKit
 
 protocol CellFooter: class {
 	func configure(with eventReport: EventReport)
+	
 }
 
 class EventReportTableViewCell: UITableViewCell {
@@ -93,16 +94,34 @@ class EventReportTableViewCell: UITableViewCell {
 		print("\(EventReportTableViewCell.footerCounter) * Made a new footer")
 		
 		if let footerView = footer as? UIView {
-			footerView.frame = CGRect(x: 0, y: 0, width: self.footerContainerView.bounds.width, height: self.footerContainerView.bounds.height - 5.0)
-			footerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-			footerView.translatesAutoresizingMaskIntoConstraints = true;
+			footerView.frame = CGRect(x: 0, y: 0, width: self.footerContainerView.bounds.width, height: self.footerContainerView.bounds.height)
+//			footerView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+			footerView.translatesAutoresizingMaskIntoConstraints = false;
 			self.footerContainerView.addSubview(footerView)
 			self.footer = footer
+			self.setupFooterConstraints()
 		}
 		
 		return footer!
 	}
-    
+	
+	private func setupFooterConstraints() {
+		if let footerView = footer as? UIView {
+			let topConstraint = NSLayoutConstraint(item: footerView, attribute: .top, relatedBy: NSLayoutRelation.equal,
+												   toItem: self.footerContainerView, attribute: .top, multiplier: 1.0, constant: 0)
+			let bottomConstraint = NSLayoutConstraint(item: footerView, attribute: .bottom, relatedBy: NSLayoutRelation.equal,
+													  toItem: self.footerContainerView, attribute: .bottom, multiplier: 1.0, constant: -5.0)
+			let leftConstraint = NSLayoutConstraint(item: footerView, attribute: .left, relatedBy: NSLayoutRelation.equal,
+													toItem: self.footerContainerView, attribute: .left, multiplier: 1.0, constant: 0)
+			let rightConstraint = NSLayoutConstraint(item: footerView, attribute: .right, relatedBy: NSLayoutRelation.equal,
+													toItem: self.footerContainerView, attribute: .right, multiplier: 1.0, constant: 0)
+			let footerHeight = footerView.intrinsicContentSize.height
+			let heightConstraint = NSLayoutConstraint(item: footerView, attribute: .height, relatedBy: NSLayoutRelation.equal,
+													 toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: footerHeight)
+			footerView.addConstraint(heightConstraint)
+			self.footerContainerView.addConstraints([topConstraint, bottomConstraint, leftConstraint, rightConstraint])
+		}
+	}
 }
 
 extension EventReportType {

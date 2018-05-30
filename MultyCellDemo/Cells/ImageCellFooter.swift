@@ -11,7 +11,9 @@ import UIKit
 class ImageCellFooter: UIView {
 	@IBOutlet weak var imageView: UIImageView!
 	
-	
+	override var intrinsicContentSize: CGSize {
+		return CGSize(width: 375, height: 120)
+	}
 	
     private func configure(withImagePath imagePath: String?) {
 		self.imageView.image = UIImage(named: imagePath ?? "")
