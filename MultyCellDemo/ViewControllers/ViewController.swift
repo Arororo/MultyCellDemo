@@ -23,7 +23,8 @@ class ViewController: UIViewController {
 	}
 
 	func setupTableView() {
-		EventReportTableViewCell.registerNibs(in: self.tableView)
+		//EventReportTableViewCell.registerNibs(in: self.tableView)
+		EventReportTableViewCell.registerNib(in: self.tableView)
 	}
 
 }
@@ -42,12 +43,13 @@ extension ViewController: UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let item = self.items[indexPath.row]
-		let cellIdentifier = EventReportTableViewCell.identifier(for: item)
+//		let cellIdentifier = EventReportTableViewCell.identifier(for: item)
+		let cellIdentifier = EventReportTableViewCell.defaultIdentifier()
 		let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier)
 		guard let result = cell as? EventReportTableViewCell else {
 			return UITableViewCell()
 		}
-		result.configure(with: self.items[indexPath.row])
+		result.configure(with: item)
 		return result
 	}
 }
