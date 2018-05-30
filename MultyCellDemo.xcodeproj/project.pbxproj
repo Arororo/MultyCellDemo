@@ -23,6 +23,7 @@
 		1A81CE4720B8D51A00654F9C /* CollectionCellFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A81CE4620B8D51A00654F9C /* CollectionCellFooter.xib */; };
 		1A81CE4A20B8E71400654F9C /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A81CE4820B8E71400654F9C /* ImageCollectionViewCell.swift */; };
 		1A81CE4B20B8E71400654F9C /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1A81CE4920B8E71400654F9C /* ImageCollectionViewCell.xib */; };
+		1A81CE4D20BC692800654F9C /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A81CE4C20BC692800654F9C /* UITableViewCell+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		1A81CE4620B8D51A00654F9C /* CollectionCellFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCellFooter.xib; sourceTree = "<group>"; };
 		1A81CE4820B8E71400654F9C /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A81CE4920B8E71400654F9C /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		1A81CE4C20BC692800654F9C /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				1A81CE4620B8D51A00654F9C /* CollectionCellFooter.xib */,
 				1A81CE4820B8E71400654F9C /* ImageCollectionViewCell.swift */,
 				1A81CE4920B8E71400654F9C /* ImageCollectionViewCell.xib */,
+				1A81CE4C20BC692800654F9C /* UITableViewCell+Extension.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				1A81CE2420B7690C00654F9C /* ViewController.swift in Sources */,
 				1A81CE4A20B8E71400654F9C /* ImageCollectionViewCell.swift in Sources */,
 				1A81CE3420B76AA600654F9C /* EventReport.swift in Sources */,
+				1A81CE4D20BC692800654F9C /* UITableViewCell+Extension.swift in Sources */,
 				1A81CE3720B77B8400654F9C /* EventReportTableViewCell.swift in Sources */,
 				1A81CE4120B8BDFE00654F9C /* ImageCellFooter.swift in Sources */,
 				1A81CE2220B7690C00654F9C /* AppDelegate.swift in Sources */,

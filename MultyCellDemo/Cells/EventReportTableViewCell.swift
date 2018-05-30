@@ -33,11 +33,19 @@ class EventReportTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+	override class func identifier(for item: Any?) -> String {
+		guard let eventReport = item as? EventReport else {
+			return super.defaultIdentifier()
+		}
+		return super.defaultIdentifier() + "\(eventReport.eventReportType)"
+	}
+	
+	override class func registerNibs(in tableView: UITableView) {
+		let nib = UINib(nibName: self.nibName(), bundle: nil)
+		EventReportType.allCases().forEach { reportType in
+			tableView.register(nib, forCellReuseIdentifier: self.defaultIdentifier() + "\(reportType)")
+		}
+	}
 	
 	func configure(with eventReport: EventReport) {
 		self.avatarImageView.image = UIImage(named: eventReport.avatarFileName ?? "")
